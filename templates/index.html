@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ChatBot AI</title>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+
+    <!-- Markdown -->
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+
+    <!-- Highlight.js -->
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github-dark.min.css">
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+</head>
+
+<body>
+
+<div class="container">
+
+    <aside class="sidebar">
+        <h2>🤖 ChatBot AI</h2>
+
+        <button id="newChatBtn">+ New Chat</button>
+
+        <hr>
+
+        <div id="history"></div>
+    </aside>
+
+    <main class="chat-section">
+
+        <div class="chat-header">
+            ChatBot AI
+        </div>
+
+        <div id="chatBox" class="chat-box">
+
+            <div class="message ai">
+                <div class="avatar">🤖</div>
+
+                <div class="bubble">
+                    Hello 👋<br><br>
+                    I'm your AI assistant powered by <b>Qwen2.5:7B</b> running locally using Ollama.
+                    <br><br>
+                    Ask me anything.
+                </div>
+            </div>
+
+        </div>
+
+       
+
+        <div class="input-area">
+            <textarea
+                id="messageInput"
+                placeholder="Message ChatBot AI..."
+                rows="1"></textarea>
+
+            <button id="sendBtn">Send</button>
+        </div>
+
+    </main>
+
+</div>
+
+<script>
+document.addEventListener("click", function(e){
+
+    if(e.target.classList.contains("copy-btn")){
+
+        const code = e.target.previousElementSibling.innerText;
+
+        navigator.clipboard.writeText(code);
+
+        e.target.innerText = "✅ Copied";
+
+        setTimeout(()=>{
+            e.target.innerText = "📋 Copy";
+        },2000);
+
+    }
+
+});
+</script>
+
+<!-- KEEP THIS -->
+<script src="{{ url_for('static', filename='script.js') }}"></script>
+
+</body>
+</html>
+
+<script src="{{ url_for('static', filename='script.js') }}"></script>
+
+</body>
+</html>
